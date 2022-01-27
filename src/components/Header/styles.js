@@ -4,6 +4,7 @@ export const styles = StyleSheet.create({
     header:{
         flexDirection:'row',
         height: 120,
+        width:'100%',
         justifyContent: 'space-between',
         alignItems: 'center',
         backgroundColor: '#fc034e',
@@ -17,7 +18,7 @@ export const styles = StyleSheet.create({
     },
     backbutton:{
         marginTop: 25,
-        marginLeft:15,
+        marginLeft:'auto',
         marginRight:'auto',
     },
 

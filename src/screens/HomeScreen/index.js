@@ -1,30 +1,32 @@
-import React from 'react';
-import {View, Text} from 'react-native';
-import {styles} from './styles'
-import {Header} from '../../components/Header'
-import {PrimaryButton} from '../../components/Buttons'
-import { WorkoutList } from '../../components/WorkoutList';
-import {Line} from '../../components/Line'
-import {StrengthBar} from '../../components/StrengthBar'
+import React, {useState} from 'react';
+import { View} from 'react-native';
+import {styles} from './styles';
+import {Header} from '../../components/Header';
+import {WorkoutList} from '../../components/WorkoutList';
+import {Line} from '../../components/Line';
+import {StrengthBar} from '../../components/StrengthBar';
+import {Modal} from '../../components/Modal';
 
-export function HomeScreen () {
-    return (
-        <View style={styles.container}>
-            <Header title="Elastic"/>
-            <WorkoutList/>
-            <Line/>
-            <StrengthBar/>
-            <View style={{flexDirection:'row', justifyContent: 'center'}}>
-            <PrimaryButton  name="play" size={25} color="#FFF" title="INICIAR"/>
-            <PrimaryButton  name="chart-bar" size={22} color="#FFF" title="RELATÓRIOS"/>
-            </View>
-            <View>
-            <Text>OLÁ MUNDO ESSA É A HOME SCREEN</Text>
-            </View>
-            <View>
-            <Text>OLÁ MUNDO ESSA É A HOME SCREEN</Text>
+export function HomeScreen() {
+  const workouts = [
+    'ABDOMINAL',
+    'FLEXÃO DE COTOVELO',
+    'EXTENSÃO DO COTOVELO DIREITO',
+    'EXTENSÃO DO COTOVELO ESQUERDO',
+  ];
 
-            </View>
-        </View>
-    )
+  return (
+    <View style={styles.container}>
+      <Header title="Elastic" />
+      <WorkoutList />
+      <Line marginTop={25} marginBottom={25} />
+      <StrengthBar />
+      <Modal
+        title1={workouts[0]}
+        title2={workouts[1]}
+        title3={workouts[2]}
+        title4={workouts[3]}
+      />
+    </View>
+  );
 }

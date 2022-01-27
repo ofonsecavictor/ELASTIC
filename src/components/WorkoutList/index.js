@@ -6,7 +6,7 @@ import {styles} from "./styles"
 export function WorkoutList () {
     return (
         <View style={styles.container}>
-            <View style={{marginLeft:'auto', marginRight:'auto', marginTop: 30,}}>
+            <View style={{marginLeft:'auto', marginRight:'auto', marginTop: 30, alignItems: 'center'}}>
             <MaterialCommunityIcons style={styles.backbutton}
               name='flag'
               type='ionicon'
@@ -19,7 +19,7 @@ export function WorkoutList () {
             </Text>
             </View>
 
-            <View style={{marginLeft:'auto', marginRight:'auto', marginTop: 30,}}>
+            <View style={{marginLeft:'auto', marginRight:'auto', marginTop: 30, alignItems: 'center'}}>
             <MaterialCommunityIcons style={styles.backbutton}
               name='refresh'
               type='ionicon'
@@ -32,7 +32,7 @@ export function WorkoutList () {
             </Text>
             </View>
 
-            <View style={{marginLeft:'auto', marginRight:'auto', marginTop: 30,}}>
+            <View style={{marginLeft:'auto', marginRight:'auto', marginTop: 30, alignItems: 'center'}}>
             <MaterialCommunityIcons style={styles.backbutton}
               name='dumbbell'
               type='ionicon'
@@ -45,7 +45,7 @@ export function WorkoutList () {
             </Text>
             </View>
 
-            <View style={{marginLeft:'auto', marginRight:'auto', marginTop: 30, }}>
+            <View style={{marginLeft:'auto', marginRight:'auto', marginTop: 30, alignItems: 'center'}}>
             <MaterialCommunityIcons style={styles.backbutton}
               name='yoga'
               type='ionicon'
