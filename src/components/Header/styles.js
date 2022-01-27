@@ -6,7 +6,7 @@ export const styles = StyleSheet.create({
         height: 120,
         justifyContent: 'space-between',
         alignItems: 'center',
-        backgroundColor: '#fc034e'
+        backgroundColor: '#fc034e',
 
     },
     headertitle:{
