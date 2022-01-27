@@ -2,6 +2,7 @@ import React, {useState, useEffect, useRef} from 'react';
 import {View, Text, TouchableOpacity} from 'react-native';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import {styles} from './styles';
+import {StrengthChart} from '../Chart';
 import {PrimaryButton} from '../../components/Buttons';
 
 export function StrengthBar() {
@@ -10,7 +11,7 @@ export function StrengthBar() {
   const [isActive, setIsActive] = useState(false);
   const [counter, setCounter] = useState(0);
 
-  const workouts = [
+const workouts = [
 'ABDOMINAL',
 'FLEXÃO DE COTOVELO',
 'EXTENSÃO DO COTOVELO DIREITO',
@@ -78,17 +79,9 @@ export function StrengthBar() {
           />
         </TouchableOpacity>
       </View>
-      <View 
-        style={{
-          borderBottomColor: 'grey',
-          borderBottomWidth: 50,
-          marginLeft: 20,
-          marginRight: 20,
-          marginTop: 60,
-          marginBottom: 20,
-          borderRadius: 30,
-        }}
-      />
+      <View>
+      <StrengthChart/>
+      </View>
 
       <View style={{flexDirection: 'row', justifyContent: 'center', alignItems: 'center', marginTop: 50,}}>
         <MaterialCommunityIcons
@@ -104,7 +97,7 @@ export function StrengthBar() {
         </TouchableOpacity>
       </View>
 
-<View></View>
+
       <View
         style={{
           flexDirection: 'row',
