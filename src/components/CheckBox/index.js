@@ -1,6 +1,6 @@
 import  React, {useState} from 'react';
 import {View, Text} from 'react-native';
-import {Checkbox} from 'react-native-paper';
+import {Checkbox,} from 'react-native-paper';
 
 import {styles} from './styles';
 

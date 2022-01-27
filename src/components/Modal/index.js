@@ -15,11 +15,11 @@ export function Modal({title1, title2, title3,title4}) {
 
   return (
     <>
-      <Modalize ref={modalizeRef} snapPoint={300}>
+      <Modalize ref={modalizeRef} snapPoint={350}>
         <Text style={styles.modalTitle}> Selecione o exercício</Text>
         <View
           style={{
-            flex: 1,
+
             alignSelf: 'center',
             borderWidth: 1,
             borderRadius: 10,
