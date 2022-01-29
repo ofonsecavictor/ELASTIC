@@ -4,13 +4,34 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
 import {styles} from './styles';
 import {StrengthChart} from '../Chart';
 import {PrimaryButton} from '../../components/Buttons';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export function StrengthBar() {
   const [second, setSecond] = useState(0);
   const [minute, setMinute] = useState(0);
   const [isActive, setIsActive] = useState(false);
   const [counter, setCounter] = useState(0);
+  const [checked, setChecked] = useState('');
+  const [value, setValue] = useState();
+  const Armazenar = async value => {
+    try {
+      await AsyncStorage.setItem('@App1', value);
+      Alert.alert('Dados salvos com sucesso!', (checked))
+    } catch (error) {
+    }
+  };
 
+  const Buscar = async () => {
+    try {
+      const data = await AsyncStorage.getItem('@App1');
+      setValue(data);
+    } catch (e) {
+      console.log(value);
+    }
+    };
+    useEffect(() => {
+      Buscar();
+    }, []);
 const workouts = [
 'ABDOMINAL',
 'FLEXÃO DE COTOVELO',
@@ -120,7 +141,7 @@ const workouts = [
           />
         </TouchableOpacity>
         <Text  style={{textAlign: 'center', alignItems: 'center'}}>      
-            {workouts[selected]}
+        {value}
         </Text>
 
         <TouchableOpacity style={{marginRight: 20}} onPress={handleNext}>

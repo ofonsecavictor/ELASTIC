@@ -7,13 +7,7 @@ import {Line} from '../../components/Line';
 import {StrengthBar} from '../../components/StrengthBar';
 import {Modal} from '../../components/Modal';
 
-export function HomeScreen() {
-  const workouts = [
-    'ABDOMINAL',
-    'FLEXÃO DE COTOVELO',
-    'EXTENSÃO DO COTOVELO DIREITO',
-    'EXTENSÃO DO COTOVELO ESQUERDO',
-  ];
+export function HomeScreen () {
 
   return (
     <View style={styles.container}>
@@ -21,12 +15,7 @@ export function HomeScreen() {
       <WorkoutList />
       <Line marginTop={25} marginBottom={25} />
       <StrengthBar />
-      <Modal
-        title1={workouts[0]}
-        title2={workouts[1]}
-        title3={workouts[2]}
-        title4={workouts[3]}
-      />
+      <Modal/>
     </View>
   );
 }

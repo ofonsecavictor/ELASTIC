@@ -19,7 +19,7 @@ const keys = ['apples', 'bananas', 'cherries', 'dates']
   return(
 
     <StackedBarChart
-    style={{ height: 150, width:'90%', alignSelf:'center', borderRadius:10, }}
+    style={{ height: 120, width:'90%', alignSelf:'center', borderRadius:10, }}
     horizontal
     keys={keys}
     colors={colors}

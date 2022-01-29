@@ -10,11 +10,7 @@ export function MyCheckBox({props, title, ...rest}) {
   return (
     <View style={styles.container}>
       <View style={styles.checkContainer}>
-        <Checkbox
-          status={checked ? 'checked' : 'unchecked'}
-          onPress={() => {
-            setChecked(!checked);
-          }}
+        <Checkbox {...rest}
           color="#fc034e"
         />
         <Text style={styles.title}> {title} </Text>
