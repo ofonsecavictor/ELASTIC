@@ -1,60 +1,45 @@
-import React, {useState, useEffect, useRef} from 'react';
+import React, {useState, useEffect} from 'react';
 import {View, Text, TouchableOpacity} from 'react-native';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import {styles} from './styles';
 import {StrengthChart} from '../Chart';
 import {PrimaryButton} from '../../components/Buttons';
-import AsyncStorage from '@react-native-async-storage/async-storage';
+import { useDispatch } from 'react-redux';
+import {increment} from '../../redux/reducer'
+import {reset} from '../../redux/reducer'
 
 export function StrengthBar() {
-  const [second, setSecond] = useState(0);
-  const [minute, setMinute] = useState(0);
-  const [isActive, setIsActive] = useState(false);
+  const [second, setSecond] = useState('00');
+  const [minute, setMinute] = useState('00');
   const [counter, setCounter] = useState(0);
-  const [checked, setChecked] = useState('');
-  const [value, setValue] = useState();
-  const Armazenar = async value => {
-    try {
-      await AsyncStorage.setItem('@App1', value);
-      Alert.alert('Dados salvos com sucesso!', (checked))
-    } catch (error) {
-    }
-  };
+  const [selected, setSelected] = useState(0);
+  const [isActive, setIsActive] = useState(false);
 
-  const Buscar = async () => {
-    try {
-      const data = await AsyncStorage.getItem('@App1');
-      setValue(data);
-    } catch (e) {
-      console.log(value);
-    }
-    };
-    useEffect(() => {
-      Buscar();
-    }, []);
+  const dispatch = useDispatch()
+  
 const workouts = [
+'SELECIONE',
 'ABDOMINAL',
 'FLEXÃO DE COTOVELO',
 'EXTENSÃO DO COTOVELO DIREITO',
 'EXTENSÃO DO COTOVELO ESQUERDO',
   ];
 
-  const [selected, setSelected] = useState(0);
+  function handleClick() {
+    setIsActive(!isActive);
+  }
+
+
   const handleNext = () => {
     setSelected(prev => {
       if (prev === workouts.length - 1) {
-        return 0;
+        return 1;
       } else {
         return prev + 1;
       }
     });
   };
 
-
-
-  function handleClick() {
-    setIsActive(!isActive);
-  }
 
     useEffect(() => {
       let intervalId;
@@ -63,7 +48,6 @@ const workouts = [
         intervalId = setInterval(() => {
           const secondCounter = counter % 60;
           const minuteCounter = Math.floor(counter / 60);
-  
           const computedSecond = String(secondCounter).length === 1 ? `0${secondCounter}`: secondCounter;
           const computedMinute = String(minuteCounter).length === 1 ? `0${minuteCounter}`: minuteCounter;
   
@@ -76,6 +60,7 @@ const workouts = [
   
       return () => clearInterval(intervalId);
     }, [isActive, counter])
+
 
   return (
     <View>
@@ -113,8 +98,10 @@ const workouts = [
         />
         <Text> {minute}m {second}s </Text>
 
-        <TouchableOpacity onPress={() => setCounter(0)} style={{marginLeft: 10,}}>
-        <Text> Resetar</Text>
+        <TouchableOpacity onPress={() => dispatch(reset(), setCounter(0),)} style={{marginLeft: 10,}}>
+          <View style={{borderWidth:1, borderColor:'#fc034e', borderRadius: 5, width:55, height:25, textAlign: 'center', alignItems: 'center'}}>
+        <Text>Resetar</Text>
+        </View>
         </TouchableOpacity>
       </View>
 
@@ -141,7 +128,7 @@ const workouts = [
           />
         </TouchableOpacity>
         <Text  style={{textAlign: 'center', alignItems: 'center'}}>      
-        {value}
+        {workouts[selected]}
         </Text>
 
         <TouchableOpacity style={{marginRight: 20}} onPress={handleNext}>
@@ -154,7 +141,9 @@ const workouts = [
         </TouchableOpacity>
 
       </View>
-
+      <Text  style={{textAlign: 'center', alignItems: 'center', marginTop: 5,}}>      
+        {[selected]} / 4
+        </Text>
       <View
         style={{
           flexDirection: 'row',
@@ -167,7 +156,7 @@ const workouts = [
           size={18}
           color="#FFF"
 
-          onPress={handleClick}>
+          onPress={dispatch(increment()), handleClick}>
           {isActive ? "PARAR" : "INICIAR"}
           </PrimaryButton>
         <PrimaryButton

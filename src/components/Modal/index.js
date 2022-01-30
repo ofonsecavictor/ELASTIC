@@ -7,8 +7,8 @@ import {Line} from '../Line';
 import {PrimaryButton} from '../Buttons';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-export function Modal({children}) {
-  const modalizeRef = useRef(false);
+export function Modal() {
+  const modalizeRef = useRef(null);
   const [checked, setChecked] = useState('');
   const [value, setValue] = useState();
 
@@ -39,14 +39,12 @@ export function Modal({children}) {
     }, []);
   //Open Modal
   useEffect(() => {
-    setTimeout(() => modalizeRef.current?.open(true));
+    setTimeout(() => modalizeRef.current?.open(1000));
   }, []);
 
   return (
-    <>
-      <Modalize ref={modalizeRef} snapPoint={470}>
+      <Modalize handlePosition="inside" ref={modalizeRef} snapPoint={300} modalHeight={500} >
         <Text style={styles.modalTitle}> Adicione os exercício</Text>
-        <Text>ESSE É O VALOR ARMAZENADO {value? checked : value}</Text>
         <View
           style={{
             alignSelf: 'center',
@@ -107,6 +105,6 @@ export function Modal({children}) {
           />
         </View>
       </Modalize>
-    </>
+
   );
 }

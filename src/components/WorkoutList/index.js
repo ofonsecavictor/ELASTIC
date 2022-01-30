@@ -1,9 +1,14 @@
-import React  from "react";
+import React from "react";
 import {View, Text,} from "react-native";
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import {styles} from "./styles"
+import { useSelector } from 'react-redux';
 
-export function WorkoutList () {
+export function WorkoutList (){
+
+
+  const count = useSelector(state => state.counter)
+
     return (
         <View style={styles.container}>
             <View style={{marginLeft:'auto', marginRight:'auto', marginTop: 30, alignItems: 'center'}}>
@@ -14,8 +19,8 @@ export function WorkoutList () {
                 size={30}
             />
             <Text>SERIES
-            </Text>
-            <Text style={{textAlign:'center'}}>0/1
+            </Text >
+            <Text  style={{textAlign:'center'}}>{count}/1
             </Text>
             </View>
 
@@ -28,7 +33,7 @@ export function WorkoutList () {
             />
             <Text>REPETIÇÕES
             </Text>
-            <Text style={{textAlign:'center'}}>0/1
+            <Text style={{textAlign:'center'}}>{count}/1
             </Text>
             </View>
 
@@ -41,7 +46,7 @@ export function WorkoutList () {
             />
             <Text style={{textAlign:'center'}}>PESO
             </Text>
-            <Text style={{textAlign:'center'}}>0/1
+            <Text style={{textAlign:'center'}}>0 KG
             </Text>
             </View>
 
@@ -54,7 +59,7 @@ export function WorkoutList () {
             />
             <Text style={{textAlign:'center'}}>MÁXIMO
             </Text>
-            <Text style={{textAlign:'center'}}>0/1
+            <Text style={{textAlign:'center'}}>0 KG
             </Text>
             </View>
         </View>
