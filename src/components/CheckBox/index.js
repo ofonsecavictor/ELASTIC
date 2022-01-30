@@ -8,13 +8,13 @@ import {styles} from './styles';
 export function MyCheckBox({props, title, ...rest}) {
   const [checked, setChecked] = useState(false);
   return (
-    <View style={styles.container}>
+
       <View style={styles.checkContainer}>
         <Checkbox {...rest}
           color="#fc034e"
         />
         <Text style={styles.title}> {title} </Text>
       </View>
-    </View>
+
   );
 }

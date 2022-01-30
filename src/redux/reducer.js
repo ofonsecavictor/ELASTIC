@@ -12,8 +12,10 @@ export const reset = () => ({
 
 // Initial state
 const initialState = {
-    counter: 0,
-
+    counter:0,
+    weigth:0,
+    max:0,
+    chart:0,
 }
 
 
@@ -23,17 +25,20 @@ const rootReducer = (state = initialState, action) => {
         case INCREMENT:
             return {
                 ...state,
-                counter: state.counter = 1,
-                weigth: state.counter = 55,
-                max: state.counter = 80,
+                counter: state.counter + 1 && 1,
+                weigth: state.weigth = 55,
+                max: state.max = 67,
+                chart: state.chart = 0.5,
             }
 
         case RESET:
             return {
                 ...state,
                 counter: 0,
-                weigth: state.counter = 0,
-                max: state.counter = 0,
+                weigth:  0,
+                max:  0,
+                chart: 0,
+
             }
         default:
             return state

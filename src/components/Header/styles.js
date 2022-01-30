@@ -3,9 +3,9 @@ import {StyleSheet} from 'react-native';
 export const styles = StyleSheet.create({
     header:{
         flexDirection:'row',
-        height: 120,
+        height: "20%",
         width:'100%',
-        justifyContent: 'space-between',
+        justifyContent: 'space-around',
         alignItems: 'center',
         backgroundColor: '#fc034e',
 
@@ -24,7 +24,5 @@ export const styles = StyleSheet.create({
 
     menubutton:{
         marginTop: 25,
-        marginLeft:'auto',
-        marginRight:15,
     }
 })

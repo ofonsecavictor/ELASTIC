@@ -12,13 +12,6 @@ export function Modal() {
   const [checked, setChecked] = useState('');
   const [value, setValue] = useState();
 
-  const workouts = [
-    'ABDOMINAL',
-    'FLEXÃO DE COTOVELO',
-    'EXTENSÃO DO COTOVELO DIREITO',
-    'EXTENSÃO DO COTOVELO ESQUERDO',
-  ];
-
   const Armazenar = async value => {
     try {
        AsyncStorage.setItem('@App1', value);
@@ -43,7 +36,7 @@ export function Modal() {
   }, []);
 
   return (
-      <Modalize handlePosition="inside" ref={modalizeRef} snapPoint={300} modalHeight={500} >
+      <Modalize handlePosition="inside" ref={modalizeRef} snapPoint={400} modalHeight={500} >
         <Text style={styles.modalTitle}> Adicione os exercício</Text>
         <View
           style={{
@@ -54,54 +47,41 @@ export function Modal() {
             marginTop: 10,
           }}>
           <MyCheckBox
-            title={workouts[0]}
-            value={checked}
-            onValueChange={value => setChecked(value)}
-            onPress={() => {
-              setChecked(workouts[0]);
-              Armazenar(workouts[0]);
-            }}
-            status={checked === workouts[0] ? 'checked' : 'unchecked'}
+           value="ABDOMINAL"
+           status={checked === 'ABDOMINAL' ? 'checked' : 'unchecked'}
+           onPress={() => setChecked('ABDOMINAL')}
+           title="ABDOMINAL"
+           onValueChange={value => setChecked(value)}
           />
           <View style={{marginBottom: 10, opacity: 0.3}}>
             <Line />
           </View>
           <MyCheckBox
-            title={workouts[1]}
-            value={checked}
-            onValueChange={value => setChecked(value)}
-            onPress={() => {
-              setChecked(workouts[1]);
-              Armazenar(workouts[1]);
-            }}
-            status={checked === workouts[1] ? 'checked' : 'unchecked'}
-          />
+           value="FLEXÃO DE COTOVELO"
+           status={checked === 'FLEXÃO DE COTOVELO' ? 'checked' : 'unchecked'}
+           onPress={() => setChecked('FLEXÃO DE COTOVELO')}
+           title="FLEXÃO DE COTOVELO"
+           onValueChange={value => setChecked(value)}          />
           <View style={{marginBottom: 10, opacity: 0.3}}>
             <Line />
           </View>
           <MyCheckBox
-            title={workouts[2]}
-            value={checked}
+            value="EXTENSÃO DO COTOVELO DIREITO"
+            status={checked === 'EXTENSÃO DO COTOVELO DIREITO' ? 'checked' : 'unchecked'}
+            onPress={() => setChecked('EXTENSÃO DO COTOVELO DIREITO')}
+            title="EXTENSÃO DO COTOVELO DIREITO"
             onValueChange={value => setChecked(value)}
-            onPress={() => {
-              setChecked(workouts[2]);
-              Armazenar(workouts[2]);
-            }}
-            status={checked === workouts[2] ? 'checked' : 'unchecked'}
           />
 
           <View style={{marginBottom: 10, opacity: 0.3}}>
             <Line />
           </View>
           <MyCheckBox
-            title={workouts[3]}
-            value={checked}
-            onValueChange={value => setChecked(value)}
-            onPress={() => {
-              setChecked(workouts[3]);
-              Armazenar(workouts[3]);
-            }}
-            status={checked === workouts[3] ? 'checked' : 'unchecked'}
+            value="EXTENSÃO DO COTOVELO ESQUERDO"
+            status={checked === 'EXTENSÃO DO COTOVELO ESQUERDO' ? 'checked' : 'unchecked'}
+            onPress={() => setChecked('EXTENSÃO DO COTOVELO ESQUERDO')}
+            title="EXTENSÃO DO COTOVELO ESQUERDO"
+onValueChange={value => setChecked(value)}
           />
         </View>
       </Modalize>
