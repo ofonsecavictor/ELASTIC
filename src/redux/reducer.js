@@ -1,5 +1,4 @@
 const INCREMENT = "INCREMENT";
-const DECREMENT = "DECREMENT";
 const RESET = "RESET";
 
 // Action creators
@@ -25,15 +24,16 @@ const rootReducer = (state = initialState, action) => {
             return {
                 ...state,
                 counter: state.counter = 1,
-
-
-
+                weigth: state.counter = 55,
+                max: state.counter = 80,
             }
+
         case RESET:
             return {
                 ...state,
                 counter: 0,
-
+                weigth: state.counter = 0,
+                max: state.counter = 0,
             }
         default:
             return state

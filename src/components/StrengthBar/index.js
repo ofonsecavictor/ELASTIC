@@ -23,7 +23,7 @@ const workouts = [
 'FLEXÃO DE COTOVELO',
 'EXTENSÃO DO COTOVELO DIREITO',
 'EXTENSÃO DO COTOVELO ESQUERDO',
-  ];
+];
 
   function handleClick() {
     setIsActive(!isActive);

@@ -8,7 +8,8 @@ export function WorkoutList (){
 
 
   const count = useSelector(state => state.counter)
-
+  const max = useSelector(state => state.max)
+  const weigth = useSelector(state => state.weigth)
     return (
         <View style={styles.container}>
             <View style={{marginLeft:'auto', marginRight:'auto', marginTop: 30, alignItems: 'center'}}>
@@ -46,7 +47,7 @@ export function WorkoutList (){
             />
             <Text style={{textAlign:'center'}}>PESO
             </Text>
-            <Text style={{textAlign:'center'}}>0 KG
+            <Text style={{textAlign:'center'}}>{weigth} KG
             </Text>
             </View>
 
@@ -59,7 +60,7 @@ export function WorkoutList (){
             />
             <Text style={{textAlign:'center'}}>MÁXIMO
             </Text>
-            <Text style={{textAlign:'center'}}>0 KG
+            <Text style={{textAlign:'center'}}>{max} KG
             </Text>
             </View>
         </View>
