@@ -36,7 +36,6 @@ export function Modal() {
           onPress={() => setChecked('ABDOMINAL')}
           title="ABDOMINAL"
           onValueChange={value => setChecked(value)}
-          Armazenar={'ABDOMINAL'}
         />
         <View style={{marginBottom: 10, opacity: 0.3}}>
           <Line />
@@ -44,10 +43,7 @@ export function Modal() {
         <MyCheckBox
           value="FLEXÃO DE COTOVELO"
           status={checked === 'FLEXÃO DE COTOVELO' ? 'checked' : 'unchecked'}
-          onPress={() => {
-            setChecked('FLEXÃO DE COTOVELO');
-            Armazenar('FLEXÃO DE COTOVELO');
-          }}
+          onPress={() => setChecked('FLEXÃO DE COTOVELO')}
           title="FLEXÃO DE COTOVELO"
           onValueChange={value => setChecked(value)}
         />
