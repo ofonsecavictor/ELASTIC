@@ -18,8 +18,10 @@ Desenvolvimento da tela principal, onde após realizar a abertura da mesma, ter�
 - Botões iniciar e relatórios.
 
 
-# Tecnologias.
-- Modalize
+# Tecnologias
+- Modal
+
+- Hooks
 
 - UseEffect
 
