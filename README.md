@@ -41,7 +41,7 @@ O estado do botão "INICIAR" também se altera, logo, é possível pausar e salv
 Existe também o botão "RESETAR" onde ele reseta todos os dados.
 
 
-# Dificuldades:
+# Dificuldades
 
 Por conta de problemas pessoais, não consegui realizar a adição de algumas coisas, como por exemplo, 
 a implementação do gráfico força (y) em ralação ao tempo (x).
