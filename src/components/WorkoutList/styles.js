@@ -9,5 +9,11 @@ export const styles = StyleSheet.create({
         paddingHorizontal: 10,
     },
 
+    series:{
+        marginLeft:'auto', marginRight:'auto', marginTop: 30, alignItems: 'center'
+    },
     
+    title:{
+        textAlign:'center'
+    }
 })

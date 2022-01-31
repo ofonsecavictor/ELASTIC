@@ -1,23 +1,20 @@
 import React, {useState, useEffect} from 'react';
-import {View, Text, TouchableOpacity} from 'react-native';
-import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import {styles} from './styles';
+import {useSelector} from 'react-redux';
+import {useDispatch} from 'react-redux';
+import {reset} from '../../redux/reducer';
+import {increment} from '../../redux/reducer';
 import * as Progress from 'react-native-progress';
 import {PrimaryButton} from '../../components/Buttons';
-import {useDispatch} from 'react-redux';
-import {increment} from '../../redux/reducer';
-import {reset} from '../../redux/reducer';
-import {useSelector} from 'react-redux';
+import {View, Text, TouchableOpacity} from 'react-native';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+
 
 export function StrengthBar() {
   const [time, setTime] = useState(0);
   const [timerOn, setTimerOn] = useState(false);
   const [selected, setSelected] = useState(0);
   const checked = useState([]);
-
-
-  const dispatch = useDispatch();
-  const chart = useSelector(state => state.chart);
 
   const workouts = [
     'SELECIONE',
@@ -27,9 +24,15 @@ export function StrengthBar() {
     'EXTENSÃO DO COTOVELO ESQUERDO',
   ];
 
+
+  const dispatch = useDispatch();
+  const bar = useSelector(state => state.bar);
+
+  
   function handleClick() {
     setTimerOn(!timerOn);
   }
+
 
   const handleNext = () => {
     setSelected(prev => {
@@ -40,6 +43,7 @@ export function StrengthBar() {
       }
     });
   };
+
 
   useEffect(() => {
     let interval = null;
@@ -77,7 +81,7 @@ export function StrengthBar() {
       </View>
       <View style={styles.progressBar}>
         <Progress.Bar
-          progress={chart}
+          progress={bar}
           style={{
             width: '100%',
           }}
@@ -146,7 +150,7 @@ export function StrengthBar() {
           }}>
           {timerOn ? 'SALVAR' : 'INICIAR'}
         </PrimaryButton>
-        <PrimaryButton
+        <PrimaryButton 
           type="ionicon"
           name="chart-bar"
           size={22}

@@ -1,8 +1,8 @@
 import React from "react";
-import {View, Text,} from "react-native";
-import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import {styles} from "./styles"
+import {View, Text,} from "react-native";
 import { useSelector } from 'react-redux';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
 export function WorkoutList (){
 
@@ -11,10 +11,11 @@ export function WorkoutList (){
   const max = useSelector(state => state.max)
   const weigth = useSelector(state => state.weigth)
 
+
     return (
         <View style={styles.container}>
-            <View style={{marginLeft:'auto', marginRight:'auto', marginTop: 30, alignItems: 'center'}}>
-            <MaterialCommunityIcons style={styles.backbutton}
+            <View style={styles.series}>
+            <MaterialCommunityIcons 
               name='flag'
               type='ionicon'
               color={'#fc034e'}
@@ -22,12 +23,12 @@ export function WorkoutList (){
             />
             <Text>SERIES
             </Text >
-            <Text  style={{textAlign:'center'}}>{count}/1
+            <Text  style={styles.title}>{count}/1
             </Text>
             </View>
 
-            <View style={{marginLeft:'auto', marginRight:'auto', marginTop: 30, alignItems: 'center'}}>
-            <MaterialCommunityIcons style={styles.backbutton}
+            <View style={styles.series}>
+            <MaterialCommunityIcons 
               name='refresh'
               type='ionicon'
               color={'#fc034e'}
@@ -35,33 +36,33 @@ export function WorkoutList (){
             />
             <Text>REPETIÇÕES
             </Text>
-            <Text style={{textAlign:'center'}}>{count}/1
+            <Text style={styles.title}>{count}/1
             </Text>
             </View>
 
-            <View style={{marginLeft:'auto', marginRight:'auto', marginTop: 30, alignItems: 'center'}}>
+            <View style={styles.series}>
             <MaterialCommunityIcons style={styles.backbutton}
               name='dumbbell'
               type='ionicon'
               color={'#fc034e'}
                 size={30}
             />
-            <Text style={{textAlign:'center'}}>PESO
+            <Text style={styles.title}>PESO
             </Text>
-            <Text style={{textAlign:'center'}}>{weigth} KG
+            <Text style={styles.title}>{weigth} KG
             </Text>
             </View>
 
-            <View style={{marginLeft:'auto', marginRight:'auto', marginTop: 30, alignItems: 'center'}}>
+            <View style={styles.series}>
             <MaterialCommunityIcons style={styles.backbutton}
               name='yoga'
               type='ionicon'
               color={'#fc034e'}
                 size={30}
             />
-            <Text style={{textAlign:'center'}}>MÁXIMO
+            <Text style={styles.title}>MÁXIMO
             </Text>
-            <Text style={{textAlign:'center'}}>{max} KG
+            <Text style={styles.title}>{max} KG
             </Text>
             </View>
         </View>

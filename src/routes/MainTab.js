@@ -33,20 +33,6 @@ export function MainTab() {
           ),
         }}
       />
-      <Tab.Screen
-        name="PhysicalScrenn"
-        component={PhysicalScrenn}
-        options={{
-          headerShown: false,
-          tabBarIcon: ({size, color}) => (
-            <MaterialCommunityIcons
-              name="weight-lifter"
-              size={size}
-              color={color}
-            />
-          ),
-        }}
-      />
     </Tab.Navigator>
   );
 }
