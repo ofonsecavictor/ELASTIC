@@ -5,7 +5,7 @@ App Case desenvolvido para teste Dev mobile.
 # Telas
 Desenvolvimento da tela principal, onde após realizar a abertura da mesma, terá os seguintes elementos:
 
-- Abertura automática do modal com os exercícios a serem selecionados.
+- Abertura automatica do modal com os sexercícios a serem selcionados.
 
 - Header com Back icon e Menu icon.
 
@@ -29,14 +29,14 @@ Desenvolvimento da tela principal, onde após realizar a abertura da mesma, ter�
 
 
 # Detalhes
-O aplicativo construído simula uma avaliação de força.
+O aplicativo construido simula uma avaliação de força.
 
 Ao abrir o modal, o usuário deve selecionar o exercício.
 
 Clicando no botão "INICIAR" é disparado a mudança de estados dos componentes, adicionado informações como:
-Número de séries, repetições, barra de progresso e cronometro.
+Número de séries, repetições, barra de progress e cronometro.
 
-O estado do botão "INICIAR" também se altera, logo, é possível pausar e salvar o exercício.
+O estado do botao "INICIAR" também se altera, logo, é possível pausar e salvar o exercício.
 
 Existe também o botão "RESETAR" onde ele reseta todos os dados.
 
