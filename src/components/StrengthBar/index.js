@@ -10,13 +10,14 @@ import {reset} from '../../redux/reducer';
 import {useSelector} from 'react-redux';
 
 export function StrengthBar() {
-  const [second, setSecond] = useState('0');
-  const [minute, setMinute] = useState('0');
-  const [timer, setTimer] = useState(0);
+  const [time, setTime] = useState(0);
+  const [timerOn, setTimerOn] = useState(false);
   const [selected, setSelected] = useState(0);
-  const [isActive, setIsActive] = useState(false);
-  const chart = useSelector(state => state.chart);
+  const checked = useState([]);
+
+
   const dispatch = useDispatch();
+  const chart = useSelector(state => state.chart);
 
   const workouts = [
     'SELECIONE',
@@ -27,7 +28,7 @@ export function StrengthBar() {
   ];
 
   function handleClick() {
-    setIsActive(!isActive);
+    setTimerOn(!timerOn);
   }
 
   const handleNext = () => {
@@ -41,30 +42,17 @@ export function StrengthBar() {
   };
 
   useEffect(() => {
-    let intervalId;
-
-    if (isActive) {
-      intervalId = setInterval(() => {
-        const secondCounter = timer % 60;
-        const minuteCounter = Math.floor(timer / 60);
-        const computedSecond =
-          String(secondCounter).length === 1
-            ? `0${secondCounter}`
-            : secondCounter;
-        const computedMinute =
-          String(minuteCounter).length === 1
-            ? `0${minuteCounter}`
-            : minuteCounter;
-
-        setSecond(computedSecond);
-        setMinute(computedMinute);
-
-        setTimer(counter => counter + 1);
-      }, 1000);
+    let interval = null;
+    if (timerOn) {
+      interval = setInterval(() => {
+        setTime(prevTime => prevTime + 10);
+      }, 10);
+    } else if (!timerOn) {
+      clearInterval(interval);
     }
 
-    return () => clearInterval(intervalId);
-  }, [isActive, timer]);
+    return () => clearInterval(interval);
+  }, [timerOn]);
 
   return (
     <View>
@@ -91,7 +79,7 @@ export function StrengthBar() {
         <Progress.Bar
           progress={chart}
           style={{
-            width: "100%"
+            width: '100%',
           }}
           height={50}
           color="#fc034e"
@@ -109,13 +97,13 @@ export function StrengthBar() {
           size={30}
         />
         <Text>
-          {' '}
-          {minute}m {second}s{' '}
+          {('0' + Math.floor((time / 1000) % 60)).slice(-2)}s{' '}
+          {('0' + ((time / 10) % 100)).slice(-2)}mm
         </Text>
 
         <TouchableOpacity
           onPress={() => {
-            dispatch(reset(), setTimer(0));
+            dispatch(reset(), setTime(0));
           }}>
           <View style={styles.reset}>
             <Text>Resetar</Text>
@@ -133,7 +121,7 @@ export function StrengthBar() {
           />
         </TouchableOpacity>
         <Text style={{textAlign: 'center', alignItems: 'center'}}>
-          {workouts[selected]}
+          {checked ? workouts[selected] : checked}
         </Text>
 
         <TouchableOpacity style={{marginRight: 20}} onPress={handleNext}>
@@ -156,7 +144,7 @@ export function StrengthBar() {
           onPress={() => {
             dispatch(increment()), handleClick();
           }}>
-          {isActive ? 'PARAR' : 'INICIAR'}
+          {timerOn ? 'SALVAR' : 'INICIAR'}
         </PrimaryButton>
         <PrimaryButton
           type="ionicon"

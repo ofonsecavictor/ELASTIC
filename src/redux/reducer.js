@@ -26,9 +26,9 @@ const rootReducer = (state = initialState, action) => {
             return {
                 ...state,
                 counter: state.counter + 1 && 1,
-                weigth: state.weigth = 55,
-                max: state.max = 67,
-                chart: state.chart = 0.5,
+                weigth: state.weigth + 30 && 30,
+                max: state.max + 45 && 45,
+                chart: state.chart + 0.5 && 0.5,
             }
 
         case RESET:
