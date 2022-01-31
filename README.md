@@ -49,5 +49,7 @@ a implementação do gráfico força (y) em ralação ao tempo (x).
 Após a seleção do exercício no modal, este deveria ser o primeiro valor a ser exibido na lista de exercícios.
 
 
-
+# Download
+Download do APK: https://github.com/ofonsecavictor/ELASTIC/releases/tag/v1.0.0 
+(rolar a página até o final, em Assets, realizar o download do "elastic-release.apk" e realizar a instalação em seu dispositivo android)
 
