@@ -18,8 +18,10 @@ Desenvolvimento da tela principal, onde após realizar a abertura da mesma, ter�
 - Botões iniciar e relatórios.
 
 
-# Tecnologias.
-- Modalize
+# Tecnologias
+- Modal
+
+- Hooks
 
 - UseEffect
 
@@ -41,7 +43,7 @@ O estado do botao "INICIAR" também se altera, logo, é possível pausar e salva
 Existe também o botão "RESETAR" onde ele reseta todos os dados.
 
 
-# Dificuldades:
+# Dificuldades
 
 Por conta de problemas pessoais, não consegui realizar a adição de algumas coisas, como por exemplo, 
 a implementação do gráfico força (y) em ralação ao tempo (x).
@@ -49,5 +51,7 @@ a implementação do gráfico força (y) em ralação ao tempo (x).
 Após a seleção do exercício no modal, este deveria ser o primeiro valor a ser exibido na lista de exercícios.
 
 
-
+# Download
+Download do APK: https://github.com/ofonsecavictor/ELASTIC/releases/tag/v1.0.0 
+(rolar a página até o final, em Assets, realizar o download do "elastic-release.apk" e realizar a instalação em seu dispositivo android)
 
