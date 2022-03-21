@@ -1,5 +1,5 @@
 # E-LASTIC
-App Case desenvolvido para teste Dev mobile.
+Desenvolvimento se feature para medição força/tempo utlizadas por fisioterapeuts
 
 
 # Telas
