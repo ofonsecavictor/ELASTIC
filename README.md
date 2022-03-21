@@ -1,5 +1,5 @@
 # E-LASTIC
-Desenvolvimento se feature para medição força/tempo utlizadas por fisioterapeuts
+Desenvolvimento de uma feature para medição força/tempo utlizadas por fisioterapeuts
 
 
 # Telas
